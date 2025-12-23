@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { navigateToSignIn } from '../utils/navigation';
 
 // API Base URL - change this to your production URL when deploying
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://trade-backend-xlra.onrender.com';
@@ -79,7 +80,8 @@ api.interceptors.response.use(
       // Unauthorized - clear token and redirect to login
       localStorage.removeItem('access_token');
       localStorage.removeItem('user');
-      window.location.href = '/signin';
+      // Use navigation utility instead of hard redirect to preserve history
+      navigateToSignIn();
     }
     return Promise.reject(error);
   }
