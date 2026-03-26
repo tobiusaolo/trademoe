@@ -2,7 +2,7 @@ import axios from 'axios';
 import { navigateToSignIn } from '../utils/navigation';
 
 // API Base URL - change this to your production URL when deploying
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://trade-backend-xlra.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://trade-backend-latest-9jox.onrender.com';
 
 // Create axios instance with default config
 const api = axios.create({
@@ -34,12 +34,12 @@ export const getErrorMessage = (error) => {
   }
 
   const { data } = error.response;
-  
+
   // If detail is a string, return it directly
   if (typeof data?.detail === 'string') {
     return data.detail;
   }
-  
+
   // If detail is an array (validation errors), format them
   if (Array.isArray(data?.detail)) {
     const messages = data.detail
@@ -57,17 +57,17 @@ export const getErrorMessage = (error) => {
         return 'Validation error';
       })
       .filter(Boolean); // Remove any undefined/null values
-    
+
     return messages.length > 0 ? messages.join(', ') : 'Validation failed';
   }
-  
+
   // If detail is an object, try to extract message
   if (data?.detail && typeof data.detail === 'object' && !Array.isArray(data.detail)) {
     if (data.detail.message) return String(data.detail.message);
     if (data.detail.msg) return String(data.detail.msg);
     if (data.detail.error) return String(data.detail.error);
   }
-  
+
   // Fallback to status text or default message
   return error.response.statusText || 'An error occurred';
 };
@@ -101,18 +101,18 @@ export const authAPI = {
     const formData = new URLSearchParams();
     formData.append('username', username);
     formData.append('password', password);
-    
+
     const response = await api.post('/api/auth/login', formData, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
-    
+
     // Store token
     if (response.data.access_token) {
       localStorage.setItem('access_token', response.data.access_token);
     }
-    
+
     return response.data;
   },
 
@@ -198,12 +198,12 @@ export const documentsAPI = {
   uploadDocument: async (applicationId, documentType, file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      
+
       reader.onloadend = async () => {
         try {
           // reader.result contains the base64 string
           const base64Data = reader.result;
-          
+
           const uploadData = {
             application_id: applicationId,
             document_type: documentType,
@@ -218,11 +218,11 @@ export const documentsAPI = {
           reject(error);
         }
       };
-      
+
       reader.onerror = (error) => {
         reject(error);
       };
-      
+
       // Read file as base64
       reader.readAsDataURL(file);
     });

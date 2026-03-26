@@ -49,7 +49,7 @@ npm run deploy
 ## Environment Variables
 
 The API base URL is configured in `src/api/api.js`. It defaults to:
-- Production: `https://trade-backend-xlra.onrender.com`
+- Production: `https://trade-backend-latest-9jox.onrender.com`
 - Can be overridden with `REACT_APP_API_URL` environment variable
 
 ## API Integration
