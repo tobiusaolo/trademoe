@@ -112,13 +112,20 @@ const Header = ({ isAuthenticated = false, showNav = false }) => {
             src="/car-emblem.png"
             alt="Central African Republic"
             sx={{
-              width: 50,
-              height: 50,
+              width: { xs: 35, sm: 50 },
+              height: { xs: 35, sm: 50 },
               objectFit: 'contain',
-              mr: 1,
+              mr: { xs: 0.5, sm: 1 },
             }}
           />
-          <Typography variant="h6" component="div" sx={{ fontWeight: 600 }}>
+          <Typography 
+            variant="h6" 
+            component="div" 
+            sx={{ 
+              fontWeight: 600,
+              fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' }
+            }}
+          >
             Ministry of Trade and Industry
           </Typography>
         </Box>
@@ -130,7 +137,7 @@ const Header = ({ isAuthenticated = false, showNav = false }) => {
               endIcon={<ArrowDropDownIcon />}
               sx={{ color: 'white', textTransform: 'none' }}
             >
-              <Box sx={{ textAlign: 'right', mr: 1 }}>
+              <Box sx={{ textAlign: 'right', mr: { xs: 0, sm: 1 }, display: { xs: 'none', sm: 'block' } }}>
                 <Typography variant="body2" sx={{ fontSize: '0.75rem', opacity: 0.9 }}>
                   {getUserTypeLabel()} Profile
                 </Typography>
@@ -158,11 +165,11 @@ const Header = ({ isAuthenticated = false, showNav = false }) => {
             </Menu>
           </Box>
         ) : (
-          <Box sx={{ display: 'flex', gap: 2 }}>
+          <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 } }}>
             <Button
               color="inherit"
               onClick={() => navigate('/signin')}
-              sx={{ textTransform: 'none' }}
+              sx={{ textTransform: 'none', px: { xs: 1, sm: 2 }, minWidth: { xs: 'auto', sm: 64 }, fontSize: { xs: '0.8rem', sm: '0.875rem' } }}
             >
               Sign in
             </Button>
@@ -171,6 +178,9 @@ const Header = ({ isAuthenticated = false, showNav = false }) => {
               sx={{
                 bgcolor: '#2e7d32',
                 textTransform: 'none',
+                px: { xs: 1, sm: 2 },
+                minWidth: { xs: 'auto', sm: 64 },
+                fontSize: { xs: '0.8rem', sm: '0.875rem' },
                 '&:hover': { bgcolor: '#1b5e20' },
               }}
               onClick={() => navigate('/register')}

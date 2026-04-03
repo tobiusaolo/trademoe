@@ -56,6 +56,7 @@ const LandingPage = () => {
         sx={{
           minHeight: 'calc(100vh - 64px)',
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -573,11 +574,14 @@ const LandingPage = () => {
         <Box
           sx={{
             bgcolor: '#2e7d32',
-            p: 4,
+            p: { xs: 3, sm: 4 },
             borderRadius: 2,
             display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
             justifyContent: 'space-between',
             alignItems: 'center',
+            gap: { xs: 3, sm: 0 },
+            textAlign: { xs: 'center', sm: 'left' },
             backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,.1) 10px, rgba(0,0,0,.1) 20px)',
           }}
         >

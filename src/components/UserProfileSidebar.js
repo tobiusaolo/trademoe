@@ -112,26 +112,26 @@ const UserProfileSidebar = () => {
   return (
     <Card
       sx={{
-        p: 3,
+        p: { xs: 2, sm: 3 },
         bgcolor: '#f5f5f5',
         borderRadius: 2,
-        minWidth: 250,
+        minWidth: { xs: '100%', md: 250 },
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Avatar
           sx={{
-            width: 80,
-            height: 80,
+            width: { xs: 60, sm: 80 },
+            height: { xs: 60, sm: 80 },
             bgcolor: '#1976d2',
-            mb: 2,
-            fontSize: '2rem',
+            mb: { xs: 1, sm: 2 },
+            fontSize: { xs: '1.5rem', sm: '2rem' },
             fontWeight: 600,
           }}
         >
           {getInitials()}
         </Avatar>
-        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, textAlign: 'center' }}>
+        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, textAlign: 'center', fontSize: { xs: '1rem', sm: '1.25rem' } }}>
           {getUserDisplayName()}
         </Typography>
         {getUserTypeLabel() && (
@@ -139,11 +139,11 @@ const UserProfileSidebar = () => {
             label={getUserTypeLabel()}
             size="small"
             color="primary"
-            sx={{ mb: 2 }}
+            sx={{ mb: { xs: 1, sm: 2 } }}
           />
         )}
         
-        <Divider sx={{ width: '100%', my: 2 }} />
+        <Divider sx={{ width: '100%', my: { xs: 1, sm: 2 } }} />
         
         <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 1.5 }}>
           {user?.email && (

@@ -2013,13 +2013,15 @@ const ApplicationForm = () => {
         ) : (
           <>
             {!isViewMode && (
-        <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
+              <Box sx={{ width: '100%', overflowX: 'auto', mb: 4, pb: 2 }}>
+                <Stepper activeStep={activeStep} alternativeLabel sx={{ minWidth: { xs: 500, sm: 'auto' } }}>
+                  {steps.map((label) => (
+                    <Step key={label}>
+                      <StepLabel>{label}</StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+              </Box>
             )}
 
         {renderStepContent()}

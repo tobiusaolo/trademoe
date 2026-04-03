@@ -61,10 +61,16 @@ const Navigation = () => {
         onChange={handleChange}
         textColor="inherit"
         indicatorColor="primary"
+        variant="scrollable"
+        scrollButtons="auto"
+        allowScrollButtonsMobile
         sx={{
           '& .MuiTab-root': {
             color: 'white',
             minHeight: 48,
+            fontSize: { xs: '0.8rem', sm: '0.875rem' },
+            minWidth: { xs: 'auto', sm: 90 },
+            px: { xs: 1.5, sm: 2 },
             '&.Mui-selected': {
               bgcolor: 'rgba(255, 255, 255, 0.2)',
             },

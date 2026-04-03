@@ -63,8 +63,8 @@ const Dashboard = () => {
     <Box>
       <Header isAuthenticated={true} />
       <Navigation />
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-        <Box sx={{ display: 'flex', gap: 4, flexDirection: { xs: 'column', md: 'row' } }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: 2, md: 4 }, mb: { xs: 2, md: 4 }, px: { xs: 1, sm: 2, md: 3 } }}>
+        <Box sx={{ display: 'flex', gap: { xs: 2, md: 4 }, flexDirection: { xs: 'column', md: 'row' } }}>
           <Box sx={{ flex: { xs: '1 1 100%', md: '1 1 75%' } }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
               <Tabs value={tabValue} onChange={handleTabChange}>
@@ -83,7 +83,7 @@ const Dashboard = () => {
                     mb: 3,
                   }}
                 >
-                  <Typography variant="h4" sx={{ fontWeight: 600 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 600, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' } }}>
                     Featured Services
                   </Typography>
                   <Button variant="text" sx={{ textTransform: 'none' }}>
@@ -129,12 +129,14 @@ const Dashboard = () => {
                             <Box
                               sx={{
                                 display: 'flex',
+                                flexDirection: { xs: 'column', sm: 'row' },
                                 justifyContent: 'space-between',
-                                alignItems: 'center',
+                                alignItems: { xs: 'flex-start', sm: 'center' },
+                                gap: { xs: 2, sm: 0 }
                               }}
                             >
-                              <Box>
-                                <Typography variant="h6">{service.name}</Typography>
+                                <Box sx={{ mb: { xs: 1, sm: 0 } }}>
+                                  <Typography variant="h6">{service.name}</Typography>
                                 {service.description && (
                                   <Typography variant="body2" color="text.secondary">
                                     {service.description}
@@ -144,7 +146,7 @@ const Dashboard = () => {
                               <Button
                                 variant="contained"
                                 onClick={() => handleApply(service.id)}
-                                sx={{ textTransform: 'none' }}
+                                sx={{ textTransform: 'none', alignSelf: { xs: 'stretch', sm: 'auto' } }}
                               >
                                 Apply
                               </Button>
@@ -172,7 +174,7 @@ const Dashboard = () => {
                     mb: 3,
                   }}
                 >
-                  <Typography variant="h4" sx={{ fontWeight: 600 }}>
+                  <Typography variant="h4" sx={{ fontWeight: 600, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' } }}>
                     Recent Applications
                   </Typography>
                   <Button
@@ -238,12 +240,14 @@ const Dashboard = () => {
                             <Box
                               sx={{
                                 display: 'flex',
+                                flexDirection: { xs: 'column', sm: 'row' },
                                 justifyContent: 'space-between',
-                                alignItems: 'center',
+                                alignItems: { xs: 'flex-start', sm: 'center' },
+                                gap: { xs: 2, sm: 0 }
                               }}
                             >
-                              <Box>
-                                <Typography variant="h6">
+                                <Box sx={{ mb: { xs: 1, sm: 0 } }}>
+                                  <Typography variant="h6">
                                   {app.application_reference || `Application #${app.id}`}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
@@ -253,7 +257,7 @@ const Dashboard = () => {
                               <Button
                                 variant="outlined"
                                 onClick={() => navigate(`/application/${app.id}`)}
-                                sx={{ textTransform: 'none' }}
+                                sx={{ textTransform: 'none', alignSelf: { xs: 'stretch', sm: 'auto' } }}
                               >
                                 View
                               </Button>
